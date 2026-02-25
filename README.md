@@ -1,12 +1,8 @@
-# 🔍 Who Made This? v3
+# 🔍 Who Made This?
 
 Find the original artist of any image. **Free. Automatic. No API key.**
 
-## What's new in v3
-
-The fundamental problem with v2 was that it relied on SauceNAO — an opt-in indexed database that only knows famous/submitted art. v3 is completely rebuilt around a smarter pipeline:
-
-### How it actually works now
+### How it works
 
 **Step 1 — Platform-native scrape (97% confidence)**
 If you right-click an image while already on one of these platforms, the extension reads the author directly from the page DOM — no network request needed:
