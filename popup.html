@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Who Made This?</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'DM Mono','Courier New',monospace}
+    body{width:290px;background:#080809;color:#e8e8ec;padding:16px;font-size:12px}
+    .logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #1d1d22}
+    .logo-mark{width:26px;height:26px;background:#6ee7b7;color:#080809;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+    .logo-text{font-size:10px;font-weight:500;letter-spacing:.16em;color:#e8e8ec}
+    .logo-sub{font-size:9px;color:#52526a;margin-top:2px;letter-spacing:.06em}
+    .tag{font-size:9px;letter-spacing:.16em;color:#2a2a38;margin-bottom:8px}
+    .box{background:#0e0e11;border:1px solid #1d1d22;padding:11px 12px;margin-bottom:12px;font-size:10px;color:#52526a;line-height:1.7}
+    .box strong{color:#e8e8ec;font-weight:500}
+    .box a{color:#6ee7b7;text-decoration:none}
+    .box a:hover{text-decoration:underline}
+    .status-row{display:flex;align-items:center;gap:8px;background:#0e0e11;border:1px solid #1d1d22;padding:8px 11px;font-size:10px;color:#52526a;margin-bottom:9px}
+    .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .on{background:#6ee7b7;box-shadow:0 0 5px #6ee7b7}
+    .off{background:#2a2a38}
+    label{display:block;font-size:9px;color:#52526a;letter-spacing:.08em;margin-bottom:5px}
+    input{width:100%;background:#0e0e11;border:1px solid #252530;color:#e8e8ec;padding:8px 10px;font-size:10px;font-family:'DM Mono',monospace;outline:none;transition:border-color .15s}
+    input:focus{border-color:#6ee7b7}
+    input::placeholder{color:#2a2a38}
+    .btns{display:flex;gap:6px;margin-top:7px}
+    button{flex:1;padding:8px;border:none;font-size:10px;font-weight:500;cursor:pointer;font-family:'DM Mono',monospace;letter-spacing:.06em;transition:all .15s}
+    .save{background:#6ee7b7;color:#080809}
+    .save:hover{background:#34d399}
+    .clr{background:#0e0e11;color:#52526a;border:1px solid #1d1d22}
+    .clr:hover{background:#14141a;color:#e8e8ec}
+    .toast{margin-top:8px;padding:7px 10px;font-size:10px;display:none;letter-spacing:.04em}
+    .tok{background:#052e16;color:#86efac;border:1px solid #166534}
+    .terr{background:#150505;color:#fca5a5;border:1px solid #7f1d1d}
+    hr{border:none;border-top:1px solid #1d1d22;margin:13px 0}
+    ol{padding-left:14px;font-size:10px;color:#52526a;line-height:1.85}
+    li{margin-bottom:1px}
+    li::marker{color:#6ee7b7}
+    strong{color:#e8e8ec;font-weight:500}
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <div class="logo-mark">🔍</div>
+    <div>
+      <div class="logo-text">WHO MADE THIS?</div>
+      <div class="logo-sub">v5.0 · image author finder</div>
+    </div>
+  </div>
+
+  <p class="tag">HOW IT WORKS</p>
+  <div class="box">
+    Works <strong>automatically</strong> with zero setup.
+    Right-click any image → reads the page directly on supported platforms, then queries <strong>SauceNAO</strong> + <strong>IQDB</strong> in the background.
+  </div>
+
+  <p class="tag">OPTIONAL — SAUCENAO API KEY</p>
+  <div class="box">
+    Free tier = <strong>100 searches/day</strong>. Sign up free at <a href="https://saucenao.com/user.php?page=register" target="_blank">saucenao.com</a> → <strong>300/day</strong>.
+  </div>
+
+  <div class="status-row">
+    <div class="dot off" id="dot"></div>
+    <span id="stxt">No key — using free tier (100/day)</span>
+  </div>
+  <label for="ki">SAUCENAO API KEY</label>
+  <input type="password" id="ki" placeholder="paste key here…"/>
+  <div class="btns">
+    <button class="save" id="bs">SAVE</button>
+    <button class="clr" id="bc">CLEAR</button>
+  </div>
+  <div id="toast" class="toast"></div>
+
+  <hr/>
+  <p class="tag">USAGE</p>
+  <ol>
+    <li>Right-click <strong>any image</strong></li>
+    <li>Select <strong>"🔍 Who made this?"</strong></li>
+    <li>Panel shows author + confidence %</li>
+    <li>Click profile links to open artist page</li>
+  </ol>
+  <script src="popup.js"></script>
+</body>
+</html>
